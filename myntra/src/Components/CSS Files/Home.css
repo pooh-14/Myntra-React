@@ -3,12 +3,56 @@
   padding: 0;
   font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Helvetica, Arial, sans-serif;
+    color: #282c3f;
 }
 
 #screen {
   width: 100%;
   /* border: 2px solid black; */
 }
+
+
+/* ---------------**popup**-------------------- */
+#myntrapop{
+  position: absolute;
+  width: 290px;
+  height: 370px;
+  /* border: 1px solid black; */
+  background-color: white;
+  margin-top: 70px;
+  color: #616371;
+  left: 80%;
+  top: 14px;
+  padding: 10px;
+  font-size: 15px;
+  box-shadow: 0 0 0.75rem 0 #838282;
+  z-index: 99;
+}
+
+#myntrapop>div{
+  padding: 5px 15px 10px 4px;
+  line-height: 23px;
+}
+
+#myntrapop>div:nth-child(1)>button{
+width: 130px;
+height: 35px;
+border:1px solid grey;
+background-color: white;
+color: #ff3f6c;
+font-weight: 700;
+padding: 5px 10px;
+margin-top: 7px;
+border-radius: 5px;
+outline: none;
+}
+
+#myntrapop>div:nth-child(1)>button:hover{
+border: 1px solid #ff3f6c;
+}
+
+/* ---------------**popup**-------------------- */
+
 
 #navbar {
   width: 100%;
@@ -20,6 +64,7 @@
   position: fixed;
   top: 0%;
   background-color: white;
+  z-index: 999;
 }
 
 #logo {
@@ -64,7 +109,7 @@
   margin-top: 10px;
 }
 
-#search > div > .fa-magnifying-glass {
+#search > div > i {
   color: rgb(115, 116, 138);
   padding-right: 5px;
 }
@@ -78,19 +123,26 @@
 
 #profile {
   width: 15%;
-  height: 55px;
+  height: 72px;
   /* border: 2px solid red; */
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-#profile > div {
-  text-align: center;
-  color: #282c3f;
+
+
+
+#profile>div:nth-child(1):hover{
+  border-bottom: 4px solid orangered;
 }
 
 #profile > div  {
+  /* border: 1px solid red; */
+  width: 22%;
+  height: 72px;
+  padding: 0 5px;
+  padding-top: 18px;
   text-align: center;
   color: #282c3f;
   font-size: 12px;

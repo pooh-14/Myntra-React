@@ -112,7 +112,7 @@ const Profile = () => {
       <div id="probody">
         <div>
           <h4>Account</h4>
-          <p>Pooja Vetal</p>
+          <p>{userData.name}</p>
         </div>
         <div id="content">
           <div id="left">

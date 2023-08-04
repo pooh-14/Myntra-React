@@ -1,14 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import '../Components/CSS Files/Cart.css'
+import { AuthContext } from "../Context/AuthContext";
 
 const Cart = () => {
+    const { state } = useContext(AuthContext);
   const [finalprice, setFinalPrice] = useState(0);
   const [userCart, setUserCart] = useState([]);
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+    role: "",
+  });
   const router = useNavigate();
 
   // console.log(userCart, "- userCart");
+
+  useEffect(() => {
+    if (state) {
+      setUserData(state.user);
+    }
+  }, [state]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("Current-user"));
@@ -80,7 +93,7 @@ useEffect(() => {
         <div id="cartleft">
             <div id="adcart">
                 <div>
-                    <p>Deliver to: <b>Pooja Vetal,410210</b></p>
+                    <p>Deliver to: <b>{userData.name},410210</b></p>
                     <p>Kharghar, Navi Mumbai</p>
                 </div>
                 <div>
@@ -98,40 +111,45 @@ useEffect(() => {
             <div id="itemscart">
                 <div>
                 <input type="checkbox"/> 
-                <lable><b>1/1 ITEMS SELECTED</b></lable>
+                <lable><b></b></lable>
                 </div>
                 <div>
                     <span>REMOVE</span>
                     <span>MOVE TO WISHLIST</span>
                 </div>
             </div>
+
+            {userCart &&
+                  userCart.map((pro) => (
             <div id="productcart">
                 <div>
-                    <img src="https://assets.myntassets.com/w_111,h_148,dpr_1.25,q_60,c_limit,fl_progressive/h_148,q_60,w_111/v1/assets/images/19013590/2022/7/8/8cd4401b-8e79-47f7-aa0e-3411146e5e561657253463927SaintGBlackTexturedLeatherBlockMuleswithLaserCuts1.jpg"/>
+                    <img src={pro.image}/>
                 </div>
                 <div>
                     <div>
-                        <p><b>Saint G</b></p>
-                        <p>Black Texured Leather Block Mules with Lasers Cuts </p>
-                        <p>Sold by : Saint G Leather Studio Pvt. Ltd.</p>
+                        <p><b>{pro.name}Saint G</b></p>
+                        <p></p>
+                        <p></p>
                     </div>
                     <div>
-                        <span><b>Size : 41</b></span>
-                        <span><b>Qty : 1</b></span>
+                        <span><b>Size : L</b></span>
+                        <span><b></b></span>
                     </div>
                     <div>
-                        <p><b>Rs. 10,500</b></p>
+                        <p><b>₹{pro.price}</b></p>
                         <p><b>14 days </b>return available</p>
-                        <p>Delivery by <b>8 June 2023</b></p>
+                        <p>Delivery by <b>8 August 2023</b></p>
                     </div>
                 </div>
             </div>
+            ))}
+
             <div id="wishcart">
                 <span><b>Add More From Wishlist</b></span>
             </div>
         </div>
         <div id="rightcart">
-            <div id="coupon">
+            <div id="couponcart">
                 <p>COUPON</p>
                 <div>
                     <p><b>Apply Coupons</b></p>
@@ -164,18 +182,18 @@ useEffect(() => {
                     <p>Convenience fee</p>
                 </div>
                 <div>
-                    <p>Rs.10,500</p>
+                    <p>₹{finalprice + finalprice}</p>
                     <p>Apply Coupon</p>
-                    <p>Rs.10</p>
+                    <p>₹0</p>
                 </div>
             </div>
             </div>
             <div id="amtcart">
                 <div>Total Amount</div>
-                <div>Rs.10,510</div>
+                <div>₹{finalprice}</div>
             </div>
             <div id="butcart">
-                <button>PLACE ORDER</button>
+                <button onClick={checkout}>PLACE ORDER</button>
             </div>
         </div>
       </div>

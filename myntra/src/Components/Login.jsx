@@ -55,10 +55,6 @@ const Login = () => {
     }
   };
 
-  function newUser() {
-    router("/register");
-  }
-
 
   return (
   <div id="screen">
