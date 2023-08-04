@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Helvetica, Arial, sans-serif;
+  }
+  
+  #screen {
+    width: 100%;
+    /* border: 2px solid black; */
+  }
+  
+ 
+  
+  #body {
+    width: 100%;
+    height: 700px;
+    border: 2px solid white;
+    background-color: #fdefeb;
+    margin-top: 60px;
+  }
+  
+  #signin {
+    width: 27%;
+    height: 630px;
+    /* border: 2px solid blue; */
+    margin: auto;
+    margin-top: 25px;
+    background-color: white;
+  }
+  
+  #signin > div:nth-child(1) > img {
+    width: 100%;
+  }
+  
+  #signin > div:nth-child(2) {
+    font-size: 20px;
+    margin-left: 40%;
+    margin-top: 15px;
+  }
+  
+  #logform>form{
+    width: 75%;
+    margin: auto;
+    margin-top: 25px;
+}
+
+#logform>form>label{
+    color: #9d9e9f;
+}
+
+#logform>form>input{
+    width: 100%;
+    height: 27px;
+    border: none;
+    outline: none;
+    border-bottom:1px solid #b0b1b2;
+    margin-bottom: 15px;
+}
+
+#logform>form>select{
+    width: 100%;
+    height: 27px;
+    border: none;
+    outline: none;
+    border-bottom:1px solid #b0b1b2;
+    margin-bottom: 15px;
+}
+
+#logform>form>button{
+   width: 96%;
+    height: 36px;
+    margin-left: 7px;
+    margin-top: 10px;
+    background-color: #ff3f6c;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    border: 2px solid #ff3f6c;
+    letter-spacing: 2px;
+    border-radius: 3px;
+}
+ 
+  
+  
+  #signin > div:nth-child(4) {
+      display: flex;
+      font-size: 12px;
+      margin-top: 20px;
+      margin-left: 10%;
+      font-weight: 600;
+  }
+  
+  #signin > div:nth-child(4)>p:nth-child(2),p:nth-child(4){
+      color: #ff3f6c;
+  }
+  
+  #signin > div:nth-child(4)>p:nth-child(3){
+      margin-right: 3px;
+      margin-left: 3px;
+  }
+  
+ 
+  
+  #signin > div:nth-child(5){
+      display: flex;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-left: 21% ;
+  }
+  
+  #signin > div:nth-child(5)>p:nth-child(2){
+      color: #ff3f6c;
+  }
+  
+  
+  
+  
