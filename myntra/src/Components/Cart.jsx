@@ -62,7 +62,7 @@ useEffect(() => {
         }
     } else {
         toast.error("You are not a Logged in user.")
-        router('/practicelogin')
+        router('/login')
     }
 }, [])
 
@@ -86,6 +86,7 @@ useEffect(() => {
     setUserCart([]);
    toast.success("Your products will be delivered soon. Thankyou for shopping!")
   }
+
   return (
     <div id="screen">
     
@@ -127,7 +128,7 @@ useEffect(() => {
                 </div>
                 <div>
                     <div>
-                        <p><b>{pro.name}Saint G</b></p>
+                        <p><b>{pro.name}</b></p>
                         <p></p>
                         <p></p>
                     </div>
