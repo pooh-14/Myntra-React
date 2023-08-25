@@ -28,6 +28,7 @@ const Navbar = () => {
   }
 
   function Logoutt() {
+    // localStorage.removeItem("token")
     dispatch({
       type: "LOGOUT",
     });

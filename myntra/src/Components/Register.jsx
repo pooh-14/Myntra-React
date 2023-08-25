@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../Components/CSS Files/Login.css";
-import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const [userData, setUserData] = useState({

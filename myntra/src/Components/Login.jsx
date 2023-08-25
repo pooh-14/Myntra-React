@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../Components/CSS Files/Login.css";
 import { AuthContext } from "../Context/AuthContext";
-import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [userData, setUserData] = useState({ email: "", password: "" });
