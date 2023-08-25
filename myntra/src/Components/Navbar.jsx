@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
-
-  const { state, Logout } = useContext(AuthContext);
+  const { state, dispatch} = useContext(AuthContext);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -14,7 +13,6 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const router = useNavigate();
 
-  
   useEffect(() => {
     if (state) {
       setUserData(state.user);
@@ -29,45 +27,52 @@ const Navbar = () => {
     setDropdown(false);
   }
 
+  function Logoutt() {
+    dispatch({
+      type: "LOGOUT",
+    });
+  }
+
   return (
     <div>
-      {dropdown?
-      <div onMouseLeave={up} id="myntrapop">
-
-        {userData?.name ? (
-              <div style={{ borderBottom: "1px solid grey" }}>
+      {dropdown ? (
+        <div onMouseLeave={up} id="myntrapop">
+          {userData?.name ? (
+            <div style={{ borderBottom: "1px solid grey" }}>
               <p>
-                <b>Hello {userData?.name}</b>
+                <b>Hello {state?.user?.name}</b>
               </p>
               <p>99******43</p>
-              <button onClick={Logout}>LOGOUT</button>
+              <button onClick={Logoutt}>LOGOUT</button>
             </div>
-            ) : (
-              <div style={{ borderBottom: "1px solid grey" }}>
-          <p>
-            <b>Welcome</b>
-          </p>
-          <p>To access account and manage orders</p>
-          <button onClick={()=>router('/register')}>LOGIN/REGISTER</button>
-        </div>
-            )}
+          ) : (
+            <div style={{ borderBottom: "1px solid grey" }}>
+              <p>
+                <b>Welcome</b>
+              </p>
+              <p>To access account and manage orders</p>
+              <button onClick={() => router("/register")}>
+                LOGIN/REGISTER
+              </button>
+            </div>
+          )}
 
-        <div style={{ borderBottom: "1px solid grey" }}>
-          <p>Orders</p>
-          <p>Wishlist</p>
-          <p>Gift Cards</p>
-          <p>Contact us</p>
-          <p>Myntra Insider</p>
+          <div style={{ borderBottom: "1px solid grey" }}>
+            <p>Orders</p>
+            <p>Wishlist</p>
+            <p>Gift Cards</p>
+            <p>Contact us</p>
+            <p>Myntra Insider</p>
+          </div>
+          <div>
+            <p>Myntra Credit</p>
+            <p>Coupons</p>
+            <p>Saved Cards</p>
+            <p>Saved VPA</p>
+            <p>Saved Adresses</p>
+          </div>
         </div>
-        <div>
-          <p>Myntra Credit</p>
-          <p>Coupons</p>
-          <p>Saved Cards</p>
-          <p>Saved VPA</p>
-          <p>Saved Adresses</p>
-        </div>
-      </div> : null}
-
+      ) : null}
 
       <div id="navbar">
         <div id="logo">
@@ -96,7 +101,9 @@ const Navbar = () => {
         <div id="profile">
           <div>
             <i class="fa-solid fa-user fa-lg"></i>
-            <p onClick={() => router("/profile")} onMouseOver={down}>Profile {userData?.name}</p>
+            <p onClick={() => router("/profile")} onMouseOver={down}>
+              Profile {userData?.name}
+            </p>
           </div>
           <div>
             <i class="fa-solid fa-heart fa-lg"></i>

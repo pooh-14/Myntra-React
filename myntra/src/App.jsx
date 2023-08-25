@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 import Navbar from './Components/Navbar';
@@ -11,8 +11,11 @@ import Footer from './Components/Footer';
   import SingleProduct from './Components/SingleProduct';
   import Cart from './Components/Cart';
 import Profile from './Components/Profile';
+import { useContext } from 'react';
+import { AuthContext } from './Context/AuthContext';
 
 function App() {
+  const { state } = useContext(AuthContext);
   return (
     <div>
      <Navbar/>
